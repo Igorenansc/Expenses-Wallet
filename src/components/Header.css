@@ -1,0 +1,26 @@
+.header {
+  background-color: white;
+  display: flex;
+  height: 50px;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.expenses-field , .email-field {
+  align-items: center;
+  display: flex;
+}
+
+.expenses-field svg , .email-field svg {
+  height: 25px;
+  margin-right: 10px;
+  width: 25px;
+}
+
+.expenses-field {
+  color: #003be5;
+}
+
+.email-field {
+  color: #2fc18c;
+}

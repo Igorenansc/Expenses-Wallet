@@ -1,7 +1,9 @@
-import { func } from 'prop-types';
+import { shape, func } from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 import { submitUser } from '../redux/actions';
+import './Login.css';
+import logo from '../imgs/logo.png';
 
 class Login extends React.Component {
   constructor(props) {
@@ -39,12 +41,15 @@ class Login extends React.Component {
     const { email, password, isDisabled } = this.state;
     return (
       <form>
-        <main>
+        <main className="login-container">
+          <img src={ logo } alt="teste" className="login-logo" />
           <div>
             <input
               type="email"
               name="email"
               data-testid="email-input"
+              placeholder="E-mail"
+              className="login-input"
               value={ email }
               onChange={ this.handleChange }
             />
@@ -52,17 +57,20 @@ class Login extends React.Component {
               type="password"
               name="password"
               data-testid="password-input"
+              placeholder="Senha"
+              className="login-input"
               value={ password }
               onChange={ this.handleChange }
             />
+            <button
+              type="button"
+              disabled={ isDisabled }
+              className="login-button"
+              onClick={ this.handleClick }
+            >
+              Entrar
+            </button>
           </div>
-          <button
-            type="button"
-            disabled={ isDisabled }
-            onClick={ this.handleClick }
-          >
-            Entrar
-          </button>
         </main>
       </form>
     );
@@ -71,7 +79,9 @@ class Login extends React.Component {
 
 Login.propTypes = {
   dispatch: func.isRequired,
-  history: func.isRequired,
+  history: shape({
+    push: func,
+  }).isRequired,
 };
 
 export default connect()(Login);

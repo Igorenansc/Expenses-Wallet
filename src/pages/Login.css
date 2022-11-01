@@ -1,0 +1,45 @@
+.login-container {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: -4px 9px 13px rgba(3, 107, 82, 0.3);
+  display: flex;
+  flex-direction: column;
+  height: 250px;
+  margin: auto;
+  opacity: 1;
+  padding: 40px 80px;
+  position: relative;
+  top: 25vh;
+  width: 450px;
+}
+
+.login-logo {
+  margin: auto;
+  width: 70%;
+}
+
+.login-container div {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+.login-input , .login-button {
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.login-input {
+  border: 1px solid #003be5;
+}
+
+.login-input::placeholder {
+  color: #003be5;
+}
+
+.login-button {
+  background-color: #003be5;
+  color: white;
+}
