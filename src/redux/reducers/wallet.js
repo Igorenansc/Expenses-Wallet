@@ -4,10 +4,15 @@ const INITIAL_STATE = {
   expenses: [],
   editor: false,
   idToEdit: 0,
+  isFetching: false,
 };
 
 function walletReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
+  case 'REQUEST_CURRENCIES':
+    return { ...state, isFetching: true };
+  case 'GET_CURRENCIES':
+    return { ...state, currencies: action.payload, isFetching: false };
   default:
     return state;
   }

@@ -1,0 +1,7 @@
+.form-header-container {
+  background-color: white;
+  border-radius: 0 0 10px 10px;
+  box-shadow: -4px 9px 13px rgba(5, 18, 54, 0.4);
+  margin: auto;
+  width: 80%;
+}

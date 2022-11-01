@@ -1,9 +1,13 @@
 .header {
-  background-color: white;
   display: flex;
-  height: 50px;
+  height: 80px;
   justify-content: space-around;
+  padding: 20px 0;
   width: 100%;
+}
+
+.header img {
+  height: 60px;
 }
 
 .expenses-field , .email-field {
