@@ -4,25 +4,25 @@ export const submitUser = (data) => ({
   payload: data,
 });
 
-function getValues(values) {
+export function saveExpense(expense) {
   return {
-    type: 'GET_CURRENCIES',
-    payload: values,
+    type: 'SUBMIT_EXPENSE',
+    payload: expense,
   };
 }
 
-function requestCurrencies() {
-  return { type: 'REQUEST_CURRENCIES' };
+export function getValues(values) {
+  return {
+    type: 'GET_CURRENCIES',
+    payload: Object.keys(values),
+  };
 }
 
 export function fetchCurrencies() {
-  return (dispatch) => {
-    dispatch(requestCurrencies());
-    return fetch('https://economia.awesomeapi.com.br/json/all')
-      .then((response) => response.json())
-      .then((json) => {
-        delete json.USDT;
-        return json;
-      }).then((json) => dispatch(getValues(Object.keys(json))));
-  };
+  return () => fetch('https://economia.awesomeapi.com.br/json/all')
+    .then((response) => response.json())
+    .then((json) => {
+      delete json.USDT;
+      return json;
+    });
 }

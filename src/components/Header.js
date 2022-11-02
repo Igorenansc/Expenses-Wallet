@@ -1,6 +1,6 @@
-import { arrayOf, number, string } from 'prop-types';
+import { arrayOf, shape, string } from 'prop-types';
 import React, { Component } from 'react';
-import { FaUserCircle, FaCoins } from 'react-icons/fa';
+import { FaCoins, FaUserCircle } from 'react-icons/fa';
 import { connect } from 'react-redux';
 import logo from '../imgs/logo.png';
 import './Header.css';
@@ -17,7 +17,14 @@ class Header extends Component {
             <strong>Total de despesas:</strong>
             {' '}
             <span data-testid="total-field">
-              {expenses.length ? expenses.reduce((acc, curr) => acc + curr, 0) : 0}
+              {
+                !expenses.length
+                  ? 0
+                  : expenses
+                    .map((val) => (val.value * val.exchangeRates[val.currency].ask))
+                    .reduce((acc, curr) => acc + curr, 0)
+                    .toFixed(2)
+              }
             </span>
             {' '}
             <span data-testid="header-currency-field">BRL</span>
@@ -34,7 +41,7 @@ class Header extends Component {
 
 Header.propTypes = {
   email: string.isRequired,
-  expenses: arrayOf(number).isRequired,
+  expenses: arrayOf(shape({})).isRequired,
 };
 
 const mapStateToProps = ({ user, wallet }) => ({
