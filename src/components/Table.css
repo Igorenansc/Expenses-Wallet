@@ -14,7 +14,6 @@
 }
 
 .expenses-table table {
-  display: flex;
   margin: auto;
   width: 90%;
 }
@@ -23,9 +22,9 @@
   width: 100%;
 }
 
-.table-heading {
-  display: flex;
-  justify-content: space-between;
+.table-heading , .table-body {
+  margin: auto;
+  text-align: center;
 }
 
 .expenses-table table td , .expenses-table table th {
