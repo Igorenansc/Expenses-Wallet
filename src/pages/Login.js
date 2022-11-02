@@ -42,7 +42,7 @@ class Login extends React.Component {
     return (
       <form>
         <main className="login-container">
-          <img src={ logo } alt="teste" className="login-logo" />
+          <img src={ logo } alt="logo" className="login-logo" />
           <div>
             <input
               type="email"
