@@ -2,6 +2,7 @@
   color: #003be5;
   display: flex;
   flex-direction: column;
+  font-size: 14px;
 }
 
 .wallet-form label {

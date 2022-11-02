@@ -1,0 +1,33 @@
+.expenses-table {
+  background-color: #003be5;
+  border-collapse: collapse;
+  border-radius: 10px;
+  box-shadow: -4px 9px 13px rgba(3, 107, 82, 0.3);
+  font-size: 12px;
+  height: min-content;
+  margin: auto;
+  padding-top: 200px;
+  position: relative;
+  top: -180px;
+  width: 90%;
+  z-index: 0;
+}
+
+.expenses-table table {
+  display: flex;
+  margin: auto;
+  width: 90%;
+}
+
+.expenses-table table thead , .expenses-table table thead tr {
+  width: 100%;
+}
+
+.table-heading {
+  display: flex;
+  justify-content: space-between;
+}
+
+.expenses-table table td , .expenses-table table th {
+  padding: 10px;
+}
