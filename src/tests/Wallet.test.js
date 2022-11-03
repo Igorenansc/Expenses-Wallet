@@ -68,6 +68,14 @@ describe('Wallet page', () => {
     expect(formSubmitBtn).toBeInTheDocument();
     act(() => userEvent.click(formSubmitBtn));
 
+    const editBtns = getAllByTestId('edit-btn');
+    expect(editBtns[0]).toBeInTheDocument();
+    act(() => userEvent.click(editBtns[0]));
+
+    const submitEditBtn = getByText(/editar despesa/i);
+    expect(submitEditBtn).toBeInTheDocument();
+    act(() => userEvent.click(submitEditBtn));
+
     const deleteBtns = getAllByTestId('delete-btn');
     expect(deleteBtns[0]).toBeInTheDocument();
     act(() => userEvent.click(deleteBtns[0]));

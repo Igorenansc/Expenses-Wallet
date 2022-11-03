@@ -2,16 +2,21 @@ import { arrayOf, func, shape } from 'prop-types';
 import React, { Component } from 'react';
 import { FaEdit, FaTrash } from 'react-icons/fa';
 import { connect } from 'react-redux';
-import { manageExpense } from '../redux/actions';
+import { removeExpense, editExpense } from '../redux/actions';
 import './Table.css';
 
 const tableHeading = ['Descrição', 'Tag', 'Método de pagamento', 'Valor', 'Moeda',
   'Câmbio utilizado', 'Valor convertido', 'Moeda de conversão', 'Editar/Excluir'];
 
 class Table extends Component {
-  manageExpense = (id, action) => {
+  removeExpense = (id) => {
     const { dispatch } = this.props;
-    dispatch(manageExpense(id, action));
+    dispatch(removeExpense(id));
+  };
+
+  editExpense = (id) => {
+    const { dispatch } = this.props;
+    dispatch(editExpense(id));
   };
 
   render() {
@@ -47,7 +52,7 @@ class Table extends Component {
                     type="button"
                     data-testid="edit-btn"
                     className="edit-btn"
-                    onClick={ () => this.manageExpense(expense.id, 'edit') }
+                    onClick={ () => this.editExpense(expense.id) }
                   >
                     <FaEdit />
                   </button>
@@ -55,7 +60,7 @@ class Table extends Component {
                     type="button"
                     data-testid="delete-btn"
                     className="delete-btn"
-                    onClick={ () => this.manageExpense(expense.id, 'remove') }
+                    onClick={ () => this.removeExpense(expense.id) }
                   >
                     <FaTrash />
                   </button>
