@@ -18,12 +18,13 @@ class Header extends Component {
             {' '}
             <span data-testid="total-field">
               {
-                !expenses.length
-                  ? 0
-                  : expenses
-                    .map((val) => (val.value * val.exchangeRates[val.currency].ask))
-                    .reduce((acc, curr) => acc + curr, 0)
-                    .toFixed(2)
+                (
+                  !expenses.length
+                    ? parseFloat(0)
+                    : expenses
+                      .map((val) => (val.value * val.exchangeRates[val.currency].ask))
+                      .reduce((acc, curr) => acc + curr, 0)
+                ).toFixed(2)
               }
             </span>
             {' '}

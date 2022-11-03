@@ -11,6 +11,13 @@ export function saveExpense(expense) {
   };
 }
 
+export function removeExpense(id) {
+  return {
+    type: 'REMOVE_EXPENSE',
+    payload: id,
+  };
+}
+
 export function getValues(values) {
   return {
     type: 'GET_CURRENCIES',

@@ -1,12 +1,13 @@
 .expenses-table {
   background-color: #003be5;
-  border-collapse: collapse;
   border-radius: 10px;
   box-shadow: -4px 9px 13px rgba(3, 107, 82, 0.3);
+  box-sizing: border-box;
   font-size: 12px;
   height: min-content;
   margin: auto;
   padding-top: 200px;
+  padding-bottom: 10px;
   position: relative;
   top: -180px;
   width: 90%;
@@ -14,6 +15,7 @@
 }
 
 .expenses-table table {
+  border-collapse: collapse;
   margin: auto;
   width: 90%;
 }
@@ -27,6 +29,50 @@
   text-align: center;
 }
 
-.expenses-table table td , .expenses-table table th {
-  padding: 10px;
+.table-body td , .table-heading th {
+  padding: 12px 10px;
+}
+
+.table-heading th {
+  border-right: thin solid white;
+}
+
+.table-heading th:last-child {
+  border-right: transparent;
+}
+
+.table-body {
+  border-top: thin solid #2fc18c;
+  color: #2fc18c;
+}
+
+.table-body:first-child {
+  border-color: white;
+}
+
+.delete-btn , .edit-btn {
+  background-color: transparent;
+  border: transparent;
+  transition: all 0.2s;
+}
+
+.delete-btn svg , .edit-btn svg {
+  height: 15px;
+  width: 15px;
+}
+
+.edit-btn {
+  color: #2fc18c;
+}
+
+.edit-btn:hover {
+  color: #248863;
+}
+
+.delete-btn {
+  color: red;
+}
+
+.delete-btn:hover {
+  color: brown;
 }

@@ -2,6 +2,7 @@
 const INITIAL_STATE = {
   currencies: [],
   expenses: [],
+  globalId: 0,
   editor: false,
   idToEdit: 0,
 };
@@ -11,7 +12,16 @@ function walletReducer(state = INITIAL_STATE, action) {
   case 'GET_CURRENCIES':
     return { ...state, currencies: action.payload };
   case 'SUBMIT_EXPENSE':
-    return { ...state, expenses: [...state.expenses, action.payload] };
+    return {
+      ...state,
+      expenses: [...state.expenses, action.payload],
+      globalId: state.globalId + 1,
+    };
+  case 'REMOVE_EXPENSE':
+    return {
+      ...state,
+      expenses: state.expenses.filter(({ id }) => id !== action.payload),
+    };
   default:
     return state;
   }

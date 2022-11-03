@@ -78,5 +78,10 @@
   color: white;
   margin: 20px auto;
   padding: 10px 80px;
+  transition: all 0.2s;
   width: max-content;
+}
+
+.wallet-form button:hover {
+  background-color: #248863;
 }
