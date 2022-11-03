@@ -38,7 +38,7 @@ describe('Wallet page', () => {
     global.fetch.mockClear();
   });
 
-  test('if the header is rendered correctly', () => {
+  test('if the component is rendered correctly', () => {
     const {
       getByTestId,
       getByText,

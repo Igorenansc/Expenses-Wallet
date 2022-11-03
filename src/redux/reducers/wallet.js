@@ -22,6 +22,23 @@ function walletReducer(state = INITIAL_STATE, action) {
       ...state,
       expenses: state.expenses.filter(({ id }) => id !== action.payload),
     };
+  case 'EDIT_EXPENSE':
+    return {
+      ...state,
+      editor: true,
+      idToEdit: action.payload,
+    };
+  case 'UPDATE_EXPENSES':
+    return {
+      ...state,
+      expenses: state.expenses.map((expense) => (
+        (expense.id === action.payload.id) ? action.payload : expense)),
+    };
+  case 'END_EDIT':
+    return {
+      ...state,
+      editor: false,
+    };
   default:
     return state;
   }

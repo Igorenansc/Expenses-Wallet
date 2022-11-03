@@ -11,10 +11,23 @@ export function saveExpense(expense) {
   };
 }
 
-export function removeExpense(id) {
+export function manageExpense(id, action = '') {
   return {
-    type: 'REMOVE_EXPENSE',
+    type: `${action.toUpperCase()}_EXPENSE`,
     payload: id,
+  };
+}
+
+export function endEdit() {
+  return {
+    type: 'END_EDIT',
+  };
+}
+
+export function updateExpenses(updatedValue) {
+  return {
+    type: 'UPDATE_EXPENSES',
+    payload: updatedValue,
   };
 }
 
