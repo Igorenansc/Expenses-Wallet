@@ -45,10 +45,6 @@
   transition: all 0.2s;
 }
 
-.login-button:hover {
-  background-color: #0028a0;
-}
-
-.login-button:disabled {
+.login-button:hover , .login-button:disabled {
   background-color: #0028a0;
 }

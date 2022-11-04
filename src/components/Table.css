@@ -7,8 +7,8 @@
   height: min-content;
   margin: auto;
   min-height: 400px;
-  padding-bottom: 10px;
-  padding-top: 200px;
+  overflow-x: auto;
+  padding: 200px 10px 10px;
   position: relative;
   top: -180px;
   width: 90%;
@@ -41,11 +41,12 @@
 .table-heading th p {
   border-right: thin solid white;
   line-height: 24px;
+  padding-right: 2px;
   white-space: nowrap;
 }
 
 .table-heading th:last-child p {
-  border: 0px transparent;
+  border-width: 0;
 }
 
 .table-body {
@@ -72,7 +73,7 @@
   color: #2fc18c;
 }
 
-.edit-btn:hover {
+.edit-btn:hover , .edit-btn:disabled {
   color: #248863;
 }
 

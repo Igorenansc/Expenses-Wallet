@@ -1,4 +1,4 @@
-import { arrayOf, func, shape } from 'prop-types';
+import { arrayOf, func, shape, bool, number } from 'prop-types';
 import React, { Component } from 'react';
 import { FaEdit, FaTrash } from 'react-icons/fa';
 import { connect } from 'react-redux';
@@ -20,7 +20,7 @@ class Table extends Component {
   };
 
   render() {
-    const { expenses } = this.props;
+    const { expenses, editor, idToEdit } = this.props;
     return (
       <section className="expenses-table">
         <table>
@@ -52,6 +52,7 @@ class Table extends Component {
                     type="button"
                     data-testid="edit-btn"
                     className="edit-btn"
+                    disabled={ (editor && (idToEdit !== expense.id)) }
                     onClick={ () => this.editExpense(expense.id) }
                   >
                     <FaEdit />
@@ -76,10 +77,14 @@ class Table extends Component {
 
 Table.propTypes = {
   expenses: arrayOf(shape({})).isRequired,
+  editor: bool.isRequired,
+  idToEdit: number.isRequired,
   dispatch: func.isRequired,
 };
 
-const mapStateToProps = ({ wallet: { expenses } }) => ({
+const mapStateToProps = ({ wallet: { expenses, editor, idToEdit } }) => ({
+  idToEdit,
+  editor,
   expenses,
 });
 
