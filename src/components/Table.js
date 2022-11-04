@@ -26,7 +26,7 @@ class Table extends Component {
         <table>
           <thead>
             <tr className="table-heading">
-              {tableHeading.map((value, index) => <th key={ index }>{value}</th>)}
+              {tableHeading.map((value, i) => <th key={ i }><p>{value}</p></th>)}
             </tr>
           </thead>
           <tbody>

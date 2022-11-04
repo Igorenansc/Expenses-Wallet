@@ -6,6 +6,7 @@
   font-size: 12px;
   height: min-content;
   margin: auto;
+  min-height: 400px;
   padding-bottom: 10px;
   padding-top: 200px;
   position: relative;
@@ -29,16 +30,22 @@
   text-align: center;
 }
 
-.table-body td , .table-heading th {
+.table-body td {
   padding: 12px 10px;
 }
 
-.table-heading th {
-  border-right: thin solid white;
+.table-heading {
+  border-bottom: thin solid white;
 }
 
-.table-heading th:last-child {
-  border-right: transparent;
+.table-heading th p {
+  border-right: thin solid white;
+  line-height: 24px;
+  white-space: nowrap;
+}
+
+.table-heading th:last-child p {
+  border: 0px transparent;
 }
 
 .table-body {
@@ -47,7 +54,7 @@
 }
 
 .table-body:first-child {
-  border-color: white;
+  border-color: transparent;
 }
 
 .delete-btn , .edit-btn {
