@@ -1,4 +1,5 @@
-import { act, cleanup } from '@testing-library/react';
+import { cleanup } from '@testing-library/react';
+import { act } from 'react-dom/test-utils';
 import userEvent from '@testing-library/user-event';
 import App from '../App';
 import mockFetch from './helpers/mockFetch';
@@ -24,7 +25,7 @@ const mockInitialState = {
     ], // array de objetos, com cada objeto tendo as chaves id, value, currency, method, tag, description e exchangeRates
     editor: false, // valor booleano que indica de uma despesa está sendo editada
     idToEdit: 0, // valor numérico que armazena o id da despesa que esta sendo editada
-    globalId: 0,
+    globalId: 1,
   },
 };
 
@@ -53,7 +54,7 @@ describe('Wallet page', () => {
     userEvent.type(passwordInput, '123456');
 
     const loginButton = getByRole('button');
-    act(() => userEvent.click(loginButton));
+    act(() => loginButton.dispatchEvent(new MouseEvent('click', { bubbles: true })));
 
     expect(global.fetch).toHaveBeenCalledTimes(1);
 
@@ -66,7 +67,7 @@ describe('Wallet page', () => {
 
     const formSubmitBtn = getByText(/adicionar despesa/i);
     expect(formSubmitBtn).toBeInTheDocument();
-    act(() => userEvent.click(formSubmitBtn));
+    act(() => formSubmitBtn.dispatchEvent(new MouseEvent('click', { bubbles: true })));
 
     const editBtns = getAllByTestId('edit-btn');
     expect(editBtns[0]).toBeInTheDocument();
